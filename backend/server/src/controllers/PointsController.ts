@@ -1,7 +1,16 @@
 import { Request, Response } from 'express'
 import knex from '../database/connection'
 
+/**
+ * Classe responsável por listar todos os pontos de coleta,
+ * por listar um ponto específico e por cadastrar um ponto no banco de dados
+ */
 class PointsController {
+  /**
+   * Retorna todos os pontos de coleta cadastrados no banco de dados
+   * @param request 
+   * @param response 
+   */
   async index(request: Request, response: Response) {
     const { city, uf, items } = request.query
 
@@ -18,6 +27,11 @@ class PointsController {
     return response.json(points)
   }
 
+  /**
+   * Retorna um ponto de coleta específico
+   * @param request 
+   * @param response 
+   */
   async show(request: Request, response: Response) {
     const { id } = request.params
 
@@ -35,6 +49,11 @@ class PointsController {
     return response.json({ point, items })
   }
   
+  /**
+   * Cadastra um ponto de coleta no banco de dados
+   * @param request 
+   * @param response 
+   */
   async create(request: Request, response: Response) {
     const {
       name,
