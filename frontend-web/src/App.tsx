@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
 
+import Home from './pages/Home'
+import CreatePoint from './pages/CreatePoint'
+
 function App() {
-  return (
-      <h1>oi</h1>
-  );
+  return ( 
+    <Home />
+   );
 }
 
 export default App;
